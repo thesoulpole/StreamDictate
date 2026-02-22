@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1081702E2DFD5D2C468FA184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC912CA3E958DF4D9B9DDAD /* AppDelegate.swift */; };
+		4018949B7315EE1E588D147D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B728C536ECCF8B84D6E5F8 /* Config.swift */; };
+		61D7757D6AAA6C1DA531CCC9 /* PermissionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B57511631371AFB256A580 /* PermissionChecker.swift */; };
+		82371D50F3D9AAF54E2FE2A0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718AEB1A5BFA6ACDBEE707E3 /* main.swift */; };
+		84B6E1EF25C62E2EA2DC6115 /* HotkeyMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AB9C1EDB75F6EC1602F00A /* HotkeyMonitor.swift */; };
+		E5A942847A5C01F9E4165E49 /* DictationPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE4C9C77C32A93E9F2ECCF /* DictationPanel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09B57511631371AFB256A580 /* PermissionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionChecker.swift; sourceTree = "<group>"; };
+		15E34740F37ECB90336E29FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		37AB9C1EDB75F6EC1602F00A /* HotkeyMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyMonitor.swift; sourceTree = "<group>"; };
+		4DEB226155EF6C19252EE3DC /* StreamDictate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StreamDictate.entitlements; sourceTree = "<group>"; };
+		5BC912CA3E958DF4D9B9DDAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		718AEB1A5BFA6ACDBEE707E3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		90B728C536ECCF8B84D6E5F8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		96EE4C9C77C32A93E9F2ECCF /* DictationPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationPanel.swift; sourceTree = "<group>"; };
+		E139ECF6ECD1E68082710B08 /* StreamDictate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamDictate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		424B76AFC0F98F984A267DD5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E139ECF6ECD1E68082710B08 /* StreamDictate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF2743496C458EDE5FB2B38B = {
+			isa = PBXGroup;
+			children = (
+				DAB7C58A3548F5C72429F187 /* Sources */,
+				424B76AFC0F98F984A267DD5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAB7C58A3548F5C72429F187 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				15E34740F37ECB90336E29FD /* Info.plist */,
+				4DEB226155EF6C19252EE3DC /* StreamDictate.entitlements */,
+				FEF0389F1AB5BF0DCCAC5D27 /* StreamDictate */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FEF0389F1AB5BF0DCCAC5D27 /* StreamDictate */ = {
+			isa = PBXGroup;
+			children = (
+				5BC912CA3E958DF4D9B9DDAD /* AppDelegate.swift */,
+				90B728C536ECCF8B84D6E5F8 /* Config.swift */,
+				96EE4C9C77C32A93E9F2ECCF /* DictationPanel.swift */,
+				37AB9C1EDB75F6EC1602F00A /* HotkeyMonitor.swift */,
+				718AEB1A5BFA6ACDBEE707E3 /* main.swift */,
+				09B57511631371AFB256A580 /* PermissionChecker.swift */,
+			);
+			path = StreamDictate;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		964C8A5A635F15D70247B389 /* StreamDictate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C225BA568E9469C01F4349DD /* Build configuration list for PBXNativeTarget "StreamDictate" */;
+			buildPhases = (
+				1AAD45818378D37F170087E3 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StreamDictate;
+			packageProductDependencies = (
+			);
+			productName = StreamDictate;
+			productReference = E139ECF6ECD1E68082710B08 /* StreamDictate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B508009802933B0690A54CA3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 6C590ADC0F4BF7A15D46E751 /* Build configuration list for PBXProject "StreamDictate" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF2743496C458EDE5FB2B38B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				964C8A5A635F15D70247B389 /* StreamDictate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1AAD45818378D37F170087E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1081702E2DFD5D2C468FA184 /* AppDelegate.swift in Sources */,
+				4018949B7315EE1E588D147D /* Config.swift in Sources */,
+				E5A942847A5C01F9E4165E49 /* DictationPanel.swift in Sources */,
+				84B6E1EF25C62E2EA2DC6115 /* HotkeyMonitor.swift in Sources */,
+				61D7757D6AAA6C1DA531CCC9 /* PermissionChecker.swift in Sources */,
+				82371D50F3D9AAF54E2FE2A0 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9C488A5CE004227F34DEF086 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/StreamDictate.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.streamdictate.app;
+				PRODUCT_NAME = StreamDictate;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BD3D839D3F03748271124F3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		DF793DF64C3FB2B55A3F75A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		FCEAB193BE896CF7CC2058D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/StreamDictate.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.streamdictate.app;
+				PRODUCT_NAME = StreamDictate;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6C590ADC0F4BF7A15D46E751 /* Build configuration list for PBXProject "StreamDictate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF793DF64C3FB2B55A3F75A0 /* Debug */,
+				BD3D839D3F03748271124F3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C225BA568E9469C01F4349DD /* Build configuration list for PBXNativeTarget "StreamDictate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C488A5CE004227F34DEF086 /* Debug */,
+				FCEAB193BE896CF7CC2058D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B508009802933B0690A54CA3 /* Project object */;
+}
