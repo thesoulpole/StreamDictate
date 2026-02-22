@@ -17,8 +17,8 @@ Press **Right Command** → a floating panel appears with macOS dictation alread
 |---|---|
 | Right Command | Open panel (+ start dictation) / Submit if already open |
 | Right Shift + Enter | Submit text and close |
+| Right Shift + ] | Toggle dictation on/off |
 | Enter | Newline |
-| Cmd + D | Toggle dictation on/off |
 | Escape | Cancel (close without injecting) |
 
 ## Requirements
@@ -37,6 +37,8 @@ open StreamDictate.xcodeproj
 ```
 
 Build and run from Xcode (Cmd+R). The app appears as a microphone icon in the menu bar with no Dock icon.
+
+To run standalone, copy the built app to `~/Applications` and enable **Launch at Login** from the menu bar icon's menu.
 
 ## Architecture
 
