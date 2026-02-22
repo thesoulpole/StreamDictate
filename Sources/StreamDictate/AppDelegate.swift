@@ -1,4 +1,5 @@
 import Cocoa
+import ServiceManagement
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
@@ -44,6 +45,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let menu = NSMenu()
         menu.addItem(withTitle: "StreamDictate v0.3", action: nil, keyEquivalent: "")
         menu.addItem(NSMenuItem.separator())
+
+        let launchItem = NSMenuItem(
+            title: "Launch at Login",
+            action: #selector(toggleLaunchAtLogin(_:)),
+            keyEquivalent: ""
+        )
+        launchItem.target = self
+        launchItem.state = SMAppService.mainApp.status == .enabled ? .on : .off
+        menu.addItem(launchItem)
+
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         statusItem.menu = menu
     }
@@ -55,6 +67,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 systemSymbolName: symbolName,
                 accessibilityDescription: "StreamDictate"
             )
+        }
+    }
+
+    @objc private func toggleLaunchAtLogin(_ sender: NSMenuItem) {
+        do {
+            if SMAppService.mainApp.status == .enabled {
+                try SMAppService.mainApp.unregister()
+                sender.state = .off
+            } else {
+                try SMAppService.mainApp.register()
+                sender.state = .on
+            }
+        } catch {
+            NSLog("[AppDelegate] Launch at login toggle failed: %@", error.localizedDescription)
         }
     }
 
