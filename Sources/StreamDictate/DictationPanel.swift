@@ -13,6 +13,7 @@ final class DictationPanel: NSObject, NSWindowDelegate {
     private let textView: DictationTextView
     private let scrollView: NSScrollView
     private var isDictating = false
+    private var eventMonitor: Any?
 
     var isVisible: Bool { panel.isVisible }
 
@@ -34,6 +35,7 @@ final class DictationPanel: NSObject, NSWindowDelegate {
 
         setupPanel()
         setupViews()
+        installEventMonitor()
     }
 
     // MARK: - Setup
@@ -110,6 +112,28 @@ final class DictationPanel: NSObject, NSWindowDelegate {
         ])
     }
 
+    /// Catches Right Shift combos at app level — during dictation, keyDown may be intercepted.
+    private func installEventMonitor() {
+        eventMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+            [weak self] event in
+            guard let self = self, self.panel.isVisible else { return event }
+            let rightShift = event.modifierFlags.rawValue & 0x04 != 0
+            guard rightShift else { return event }
+
+            // Right Shift + ] = toggle dictation
+            if event.keyCode == 30 {
+                self.toggleDictation()
+                return nil
+            }
+            // Right Shift + Enter = submit
+            if event.keyCode == 36 || event.keyCode == 76 {
+                self.submit()
+                return nil
+            }
+            return event
+        }
+    }
+
     // MARK: - Public
 
     /// Show the panel, focus the text view, and start macOS dictation.
@@ -169,11 +193,16 @@ final class DictationPanel: NSObject, NSWindowDelegate {
 
     private func stopDictation() {
         isDictating = false
-        // Resign first responder to kill the dictation session,
-        // then restore after a delay so the session fully tears down.
-        panel.makeFirstResponder(nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
-            guard let self = self, self.panel.isVisible else { return }
+        // Hide and re-show the panel after a brief delay to kill dictation.
+        let text = textView.string
+        let frame = panel.frame
+        panel.orderOut(nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+            guard let self = self else { return }
+            self.textView.string = text
+            self.panel.setFrame(frame, display: false)
+            self.panel.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
             self.panel.makeFirstResponder(self.textView)
         }
     }
