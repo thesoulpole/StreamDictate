@@ -12,6 +12,7 @@ final class DictationPanel: NSObject, NSWindowDelegate {
     private let panel: NSPanel
     private let textView: DictationTextView
     private let scrollView: NSScrollView
+    private var isDictating = false
 
     var isVisible: Bool { panel.isVisible }
 
@@ -88,7 +89,7 @@ final class DictationPanel: NSObject, NSWindowDelegate {
 
         // --- hint label ---
         let hint = NSTextField(
-            labelWithString: "R.Shift+Enter submit \u{00B7} Enter newline \u{00B7} Esc cancel"
+            labelWithString: "R.Shift+Enter submit \u{00B7} R.Shift+] dictation \u{00B7} Esc cancel"
         )
         hint.translatesAutoresizingMaskIntoConstraints = false
         hint.font = NSFont.systemFont(ofSize: 11)
@@ -121,7 +122,7 @@ final class DictationPanel: NSObject, NSWindowDelegate {
         // Brief delay so the window is fully key before starting dictation.
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             guard let self = self, self.panel.isVisible else { return }
-            self.triggerDictation()
+            self.startDictation()
         }
     }
 
@@ -134,6 +135,7 @@ final class DictationPanel: NSObject, NSWindowDelegate {
     }
 
     func dismiss() {
+        isDictating = false
         panel.orderOut(nil)
     }
 
@@ -141,28 +143,45 @@ final class DictationPanel: NSObject, NSWindowDelegate {
 
     private func submit() {
         let text = currentText
+        isDictating = false
         panel.orderOut(nil)
         delegate?.dictationPanel(didSubmitText: text)
     }
 
     private func cancel() {
+        isDictating = false
         panel.orderOut(nil)
         delegate?.dictationPanelDidCancel()
     }
 
     private func toggleDictation() {
-        triggerDictation()
+        if isDictating {
+            stopDictation()
+        } else {
+            startDictation()
+        }
     }
 
-    /// Programmatically activate macOS system dictation via the responder chain.
-    /// Same mechanism as Edit > Start Dictation menu item.
-    private func triggerDictation() {
+    private func startDictation() {
+        isDictating = true
         NSApp.sendAction(NSSelectorFromString("startDictation:"), to: nil, from: nil)
+    }
+
+    private func stopDictation() {
+        isDictating = false
+        // Resign first responder to kill the dictation session,
+        // then restore after a delay so the session fully tears down.
+        panel.makeFirstResponder(nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
+            guard let self = self, self.panel.isVisible else { return }
+            self.panel.makeFirstResponder(self.textView)
+        }
     }
 
     // MARK: - NSWindowDelegate
 
     func windowWillClose(_ notification: Notification) {
+        isDictating = false
         delegate?.dictationPanelDidCancel()
     }
 }
@@ -179,15 +198,18 @@ final class DictationTextView: NSTextView {
         let keyCode = event.keyCode
         let rawFlags = event.modifierFlags
 
-        // Return/Enter: check for Right Shift to submit
-        if keyCode == 36 || keyCode == 76 {
-            // Right Shift (flag bit 0x04) + Enter = submit
-            if rawFlags.rawValue & 0x04 != 0 {
-                submitHandler?()
-                return
-            }
-            // Plain Enter = newline (default NSTextView behavior)
-            super.keyDown(with: event)
+        // Right Shift (flag bit 0x04) combos
+        let rightShift = rawFlags.rawValue & 0x04 != 0
+
+        // Right Shift + Enter = submit
+        if rightShift && (keyCode == 36 || keyCode == 76) {
+            submitHandler?()
+            return
+        }
+
+        // Right Shift + ] (keyCode 30) = toggle dictation
+        if rightShift && keyCode == 30 {
+            toggleDictationHandler?()
             return
         }
 
